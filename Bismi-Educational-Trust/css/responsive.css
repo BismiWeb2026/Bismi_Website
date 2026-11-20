@@ -1,0 +1,148 @@
+/* ==========================================================
+   Bismi Educational Trust | Responsive styles
+   Breakpoints: 1024px (tablet), 900px (navigation collapses),
+   640px (phone), 360px (small phone)
+   ========================================================== */
+
+/* ---------- Laptop and tablet landscape ---------- */
+@media (max-width: 1024px) {
+  .card-grid,
+  .region-grid { grid-template-columns: repeat(2, 1fr); }
+  .split,
+  .founder-grid { gap: 40px; }
+  .section { padding: 84px 0; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: none; }
+  .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+
+/* ---------- Tablet portrait: navigation collapses ---------- */
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0 11px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--navy);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    padding: 8px 0 16px;
+  }
+  .site-nav.is-open { display: block; }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  .site-nav a {
+    display: block;
+    padding: 14px 24px;
+    border-radius: 0;
+    border-left: 3px solid transparent;
+  }
+  .site-nav a:hover {
+    background: var(--blue-tint);
+    border-left-color: var(--blue);
+  }
+
+  .hero { padding: 64px 0 72px; }
+  .hero-grid,
+  .split,
+  .founder-grid,
+  .contact-top {
+    grid-template-columns: 1fr;
+  }
+  .hero-grid { gap: 44px; }
+  .hero-media { max-width: 560px; }
+  .founder-photo { max-width: 420px; }
+
+  .support {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 32px;
+  }
+
+  .contact-top { gap: 36px; margin-bottom: 52px; }
+  .branch-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  .container { width: calc(100% - 32px); }
+
+  :root { --header-h: 64px; }
+  .header-inner { height: var(--header-h); }
+  .brand img { height: 38px; }
+  .brand-name { font-size: 0.95rem; }
+
+  .site-nav { top: var(--header-h); }
+
+  .hero { padding: 44px 0 60px; }
+
+  .stats { margin-top: -28px; }
+  .stat { padding: 22px 18px; }
+  .stat-value { font-size: 1.8rem; }
+  .stat-label { font-size: 0.86rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(even) { border-left: 1px solid var(--line); }
+  .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
+
+  .actions .btn,
+  .college-view-head .btn { width: 100%; }
+
+  .section { padding: 64px 0; }
+  .section-head { margin-bottom: 32px; }
+
+  .card-grid,
+  .region-grid,
+  .college-list,
+  .check-list {
+    grid-template-columns: 1fr;
+  }
+  .card,
+  .region-card { padding: 22px; }
+
+  .support { padding: 26px 22px; }
+
+  .mission { padding: 28px; }
+  .mission p { font-size: 1.3rem; }
+
+  .country-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .contact { padding: 64px 0 56px; }
+  .contact-panel,
+  .branch-card { padding: 22px; }
+  .branch-links { flex-direction: column; gap: 12px; }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 360px) {
+  .country-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat:nth-child(even) { border-left: none; }
+  .stat + .stat { border-top: 1px solid var(--line); }
+}
